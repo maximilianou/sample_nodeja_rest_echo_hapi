@@ -28,6 +28,20 @@ class EchoServerHapi{
                 return 'Hello, ' + encodeURIComponent(request.params.name) + '!\n';
             }
         });
+        this.server.route({
+            method: 'POST',
+            path: '/msg',
+            handler: (request, h) => {
+                return "POSTing:: "+JSON.stringify(request.payload) + '\n';
+            }
+        });
+        this.server.route({
+            method: 'PUT',
+            path: '/msg',
+            handler: (request, h) => {
+                return "PUTing:: "+JSON.stringify(request.payload) + '\n';
+            }
+        });
     }
 }
 
