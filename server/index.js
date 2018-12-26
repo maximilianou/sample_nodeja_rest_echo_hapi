@@ -1,5 +1,4 @@
 const Hapi = require('hapi');
-
 class EchoServerHapi{
     constructor(args){
         this.server = Hapi.server(args);
@@ -18,7 +17,7 @@ class EchoServerHapi{
             method: 'GET',
             path: '/',
             handler: (request, h) => {
-                return 'Hello, Javascript Developer!\n';
+                return 'Hello, Javascript Developer! ! !\n';
             }
         });        
         this.server.route({
@@ -51,10 +50,15 @@ class EchoServerHapi{
         });
     }
 }
-
-const firstEchoServer = new EchoServerHapi({
-    port: 3000,
+/* LOOK THIS COMMENT, NO localhost, just 0.0.0.0 */
+/*const firstEchoServer = new EchoServerHapi({
+    port: 3001,
     host: 'localhost',
+    app: {}
+  });*/
+  const firstEchoServer = new EchoServerHapi({
+    port: 3001,
+    host: '0.0.0.0',
     app: {}
   });
 
