@@ -42,6 +42,13 @@ class EchoServerHapi{
                 return "PUTing:: "+JSON.stringify(request.payload) + '\n';
             }
         });
+        this.server.route({
+            method: 'DELETE',
+            path: '/{name}',
+            handler: (request, h) => {
+                return 'Bye, ' + encodeURIComponent(request.params.name) + '!\n';
+            }
+        });
     }
 }
 

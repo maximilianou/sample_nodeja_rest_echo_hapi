@@ -1,20 +1,13 @@
 # Add any directories, files, or patterns you don't want to be tracked by version control
-
 # Project #
-
-
 # System #
 .DS_Store
-
 # Mercurial #
 .orig
-
 # Node #
 node_modules/
-
 # Grunt build #
 dist/
-
 # Bower #
 bower_components/
 public/system/lib
@@ -22,9 +15,7 @@ public/system/lib
 .bower-registry/
 .bower-tmp/
 .tmp/
-
 # IDE #
 nbproject/
 .idea/
 atlassian-ide-plugin.xml
-
