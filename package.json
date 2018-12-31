@@ -5,13 +5,15 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --recursive ./test/**.js"
   },
   "keywords": [],
   "author": "maximilianou@gmail.com",
   "license": "MIT",
   "dependencies": {
     "hapi": "^17.8.1",
-    "isemail": "^3.2.0"
+    "isemail": "^3.2.0",
+    "mocha": "^5.2.0",
+    "node-fetch": "^2.3.0"
   }
 }
