@@ -17,49 +17,42 @@ class EchoServerHapi{
             method: 'GET',
             path: '/',
             handler: (request, h) => {
-                return 'Hello, Javascript Developer! ! !\n';
+                return JSON.stringify('Hello, Javascript Developer');
             }
         });        
         this.server.route({
             method: 'GET',
             path: '/{name}',
             handler: (request, h) => {
-                return 'Hello, ' + encodeURIComponent(request.params.name) + '!\n';
+                return JSON.stringify('Hello, ' + encodeURIComponent(request.params.name) );
             }
         });
         this.server.route({
             method: 'POST',
             path: '/msg',
             handler: (request, h) => {
-                return "POSTing:: "+JSON.stringify(request.payload) + '\n';
+                return JSON.stringify(request.payload);
             }
         });
         this.server.route({
             method: 'PUT',
             path: '/msg',
             handler: (request, h) => {
-                return "PUTing:: "+JSON.stringify(request.payload) + '\n';
+                return JSON.stringify(request.payload);
             }
         });
         this.server.route({
             method: 'DELETE',
             path: '/{name}',
             handler: (request, h) => {
-                return 'Bye, ' + encodeURIComponent(request.params.name) + '!\n';
+                return JSON.stringify( 'Bye, ' + encodeURIComponent(request.params.name) );
             }
         });
     }
 }
-/* LOOK THIS COMMENT, NO localhost, just 0.0.0.0 */
-/*const firstEchoServer = new EchoServerHapi({
-    port: 3001,
-    host: 'localhost',
-    app: {}
-  });*/
-  const firstEchoServer = new EchoServerHapi({
-    port: 3001,
-    host: '0.0.0.0',
-    app: {}
-  });
-
+const firstEchoServer = new EchoServerHapi({
+  port: 3002,
+  host: '0.0.0.0',
+  app: {}
+});
 firstEchoServer.init();
