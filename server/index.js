@@ -51,8 +51,8 @@ class EchoServerHapi{
     }
 }
 const firstEchoServer = new EchoServerHapi({
-  port: 3002,
-  host: '0.0.0.0',
+    port: process.env.API_PORT,
+    host: '0.0.0.0',
   app: {}
 });
 firstEchoServer.init();
