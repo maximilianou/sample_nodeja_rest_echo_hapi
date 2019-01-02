@@ -22,12 +22,14 @@ process.env.NODE_ENV = 'test';
 const assert = require('assert');
 const fetch = require('node-fetch');
 
+process.env.API_PORT = process.env.API_PORT || 3003;
+
 describe('routes :: server', () => {
 
   describe('method http GET /', () => {
     it('should return text', (done) => {
       const thevalue = "Mafalda";
-      fetch( 'http://127.0.0.1:3002/'+thevalue
+      fetch( 'http://127.0.0.1:' + process.env.API_PORT + '/'+thevalue
       ).then( res => res.text() 
       ).then(
         (body) => {
@@ -42,7 +44,7 @@ describe('routes :: server', () => {
     it('should return text', (done) => {
       const thevalue = "Larguirucho";
       fetch(
-        'http://127.0.0.1:3002/msg', {
+        'http://127.0.0.1:' + process.env.API_PORT + '/msg', {
           method: 'POST',
           body:    JSON.stringify(thevalue),
           headers: { 'Content-Type': 'application/json' },
@@ -61,7 +63,7 @@ describe('routes :: server', () => {
     it('should return text', (done) => {
       const thevalue = "Profesor Neurus";
       fetch(
-        'http://127.0.0.1:3002/msg', {
+        'http://127.0.0.1:' + process.env.API_PORT + '/msg', {
           method: 'PUT',
           body:    JSON.stringify(thevalue),
           headers: { 'Content-Type': 'application/json' },
@@ -79,7 +81,7 @@ describe('routes :: server', () => {
   describe('metodo http DELETE /', () => {
     it('should return text', (done) => {
       const thevalue = "Pedrito";
-      fetch( 'http://127.0.0.1:3002/'+thevalue
+      fetch( 'http://127.0.0.1:' + process.env.API_PORT + '/'+thevalue
       ).then( res => res.text() 
       ).then(
         (body) => {
